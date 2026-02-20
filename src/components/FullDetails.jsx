@@ -24,32 +24,32 @@ function FullDetails() {
 
       setData(await buildFullImdbDetails(rawData));
     } catch (err) {
-      setError("Couldn't fetch full details");
+      setError(
+        err instanceof Error ? err.message : "Couldn't fetch full details"
+      );
     } finally {
       setIsLoading(false);
     }
   }
-  console.log("data", data);
 
-  return (<>
-  <h2>FULL FILM</h2>
-  <article>
+  if (isLoading) return <p>Loading…</p>;
+  if (error) return <p>{error}</p>;
+  if (!data) return null;
 
-  <div>
-    <img className="full-film-card-poster" src={data.posterURL}></img>
-    <p className="full-film-card-plot">{data.plot}</p>
-    <p className="full-film-card-dir">{data.director}</p>
-    <p className="full-fil-card-runTime">{data.runTime}</p>
-    <p className="full-film-card-ageRating">{data.ageRating}</p>
-
-  </div>
-</article>
-
-  
-  </>)
+  return (
+    <>
+      <h2>Film Details</h2>
+      <article>
+        <div>
+          <img className="full-film-card-poster" src={data.posterURL}></img>
+          <p className="full-film-card-plot">{data.plot}</p>
+          <p className="full-film-card-dir">{data.director}</p>
+          <p className="full-film-card-runTime">{data.runTime}</p>
+          <p className="full-film-card-ageRating">{data.ageRating}</p>
+        </div>
+      </article>
+    </>
+  );
 }
 
 export default FullDetails;
-
-
- 

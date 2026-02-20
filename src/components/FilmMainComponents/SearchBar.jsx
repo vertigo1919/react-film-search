@@ -9,7 +9,7 @@ function SearchBar({
 }) {
   return (
     <section className="search-section">
-      <h2> SearchBar </h2>
+      <h2> Search for a film </h2>
       <form
         onSubmit={(e) => {
           e.preventDefault();
@@ -29,9 +29,7 @@ function SearchBar({
           <button className="search-button" type="submit">
             Search
           </button>
-          <button type="button" onClick={() => randomHandler()}>
-            Random
-          </button>
+
           <button type="button" onClick={() => clearHandler()}>
             Clear
           </button>
