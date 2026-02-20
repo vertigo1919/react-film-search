@@ -29,8 +29,12 @@ function SearchBar({
           <button className="search-button" type="submit">
             Search
           </button>
-          <button>Random</button>
-          <button>Clear</button>
+          <button type="button" onClick={() => randomHandler()}>
+            Random
+          </button>
+          <button type="button" onClick={() => clearHandler()}>
+            Clear
+          </button>
         </menu>
       </form>
     </section>

@@ -5,12 +5,6 @@ import FilmList from "./FilmMainComponents/FilmList";
 import FilmCard from "./FilmMainComponents/FilmCard";
 
 function FilmMain() {
-  // query
-  //submittedQuery
-  //isLoading
-  //error
-  //searchResults
-
   const [query, setQuery] = useState("inception");
   const [submittedQuery, setSubmittedQuery] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -39,8 +33,11 @@ function FilmMain() {
     setSubmittedQuery(query);
   }
 
-  async function clearHandler(query) {
-    setSubmittedQuery(query);
+  async function clearHandler() {
+    setQuery("");
+    setSubmittedQuery("");
+    setSearchResults([]);
+    setError(null);
   }
 
   async function randomHandler(query) {
@@ -48,7 +45,7 @@ function FilmMain() {
   }
 
   /* 
-        A dd buttons
+        A add buttons
         B) Clear button to clear serach bar (to reset {query})
         C) "Clear all" button to clear film results
         C) Random button
@@ -66,7 +63,7 @@ function FilmMain() {
         setQuery={setQuery}
         submitHandler={submitHandler}
         randomHandler={randomHandler}
-        clearHandler={submitHandler}
+        clearHandler={clearHandler}
       ></SearchBar>
       <FilmList searchResults={searchResults}></FilmList>
     </main>
