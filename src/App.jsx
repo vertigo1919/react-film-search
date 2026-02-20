@@ -15,11 +15,12 @@ function App() {
   return (
     <>
       <Header></Header>
-
-      <Routes>
-        <Route path="/" element={<FilmMain />} />
-        <Route path="/details/:id" element={<FullDetails />} />
-      </Routes>
+      <main>
+        <Routes>
+          <Route path="/" element={<FilmMain />} />
+          <Route path="/details/:id" element={<FullDetails />} />
+        </Routes>
+      </main>
 
       <Footer></Footer>
     </>

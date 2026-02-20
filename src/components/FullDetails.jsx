@@ -39,13 +39,31 @@ function FullDetails() {
   return (
     <>
       <h2>Film Details</h2>
-      <article>
-        <div>
-          <img className="full-film-card-poster" src={data.posterURL}></img>
-          <p className="full-film-card-plot">{data.plot}</p>
-          <p className="full-film-card-dir">{data.director}</p>
-          <p className="full-film-card-runTime">{data.runTime}</p>
-          <p className="full-film-card-ageRating">{data.ageRating}</p>
+      <article className="details-card">
+        <div className="details-grid">
+          <img className="full-film-card-poster" src={data.posterURL} alt="" />
+
+          <div className="details-rows">
+            <div className="detail-row">
+              <div className="label">Plot</div>
+              <div className="value">{data.plot}</div>
+            </div>
+
+            <div className="detail-row">
+              <div className="label">Director</div>
+              <div className="value">{data.director}</div>
+            </div>
+
+            <div className="detail-row">
+              <div className="label">Runtime</div>
+              <div className="value">{data.runTime}</div>
+            </div>
+
+            <div className="detail-row">
+              <div className="label">Rating</div>
+              <div className="value">{data.ageRating}</div>
+            </div>
+          </div>
         </div>
       </article>
     </>

@@ -21,18 +21,12 @@ function FilmCard({ item }) {
           <p>Actors: {item.actors} </p>
           <p>Year: {item.year} </p>
           <p>Ranking: {item.rank} </p>
-          <p>IMDB JSON: {item.imdb_JSON} </p>
         </div>
       </div>
       <menu className="film-card-buttons">
         <a href={item.imdb_URL}>Link to IMDB page</a>
-        {/* <Link to="/details"> Full Details </Link> */}
-
         <Link to={`/details/${item.imdb_ID}`}>Full Details</Link>
-
         <a href={item.trailer_URL}>Play trailer</a>
-
-        <Link to="/details"> </Link>
       </menu>
     </article>
   );

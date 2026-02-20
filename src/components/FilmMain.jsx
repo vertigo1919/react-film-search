@@ -47,7 +47,7 @@ function FilmMain() {
   }
 
   return (
-    <main>
+    <>
       <SearchBar
         query={query}
         setQuery={setQuery}
@@ -59,7 +59,7 @@ function FilmMain() {
       {!isLoading && !error && (
         <FilmList searchResults={searchResults}></FilmList>
       )}
-    </main>
+    </>
   );
 }
 
