@@ -1,10 +1,12 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import getFullImdbDetails from "../full-dts-api-fetcher";
 import buildFullImdbDetails from "./full-IMDB-dts-builder";
+import { useNavigate } from "react-router-dom";
 
 function FullDetails() {
   const { id } = useParams();
+  const navigate = useNavigate();
 
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
@@ -38,7 +40,16 @@ function FullDetails() {
 
   return (
     <>
-      <h2>Film Details</h2>
+      <div className="details-header">
+        <h2>Film Details</h2>
+        <button
+          className="back-button"
+          type="button"
+          onClick={() => navigate(-1)}
+        >
+          Back
+        </button>
+      </div>
       <article className="details-card">
         <div className="details-grid">
           <img className="full-film-card-poster" src={data.posterURL} alt="" />

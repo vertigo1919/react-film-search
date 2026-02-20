@@ -1,5 +1,3 @@
-import { useState } from "react";
-import FilmList from "./FilmList";
 import { Link } from "react-router-dom";
 
 function FilmCard({ item }) {
@@ -18,15 +16,30 @@ function FilmCard({ item }) {
         ></img>
 
         <div className="film-card-basic-info">
-          <p>Actors: {item.actors} </p>
-          <p>Year: {item.year} </p>
-          <p>Ranking: {item.rank} </p>
+          <div className="detail-row">
+            <div className="label">Actors</div>
+            <div className="value">{item.actors}</div>
+          </div>
+
+          <div className="detail-row">
+            <div className="label">Year</div>
+            <div className="value">{item.year}</div>
+          </div>
+
+          <div className="detail-row">
+            <div className="label">Rank</div>
+            <div className="value">{item.rank}</div>
+          </div>
         </div>
       </div>
       <menu className="film-card-buttons">
-        <a href={item.imdb_URL}>Link to IMDB page</a>
+        <a href={item.imdb_URL} target="_blank" rel="noopener noreferrer">
+          Link to IMDB page
+        </a>
         <Link to={`/details/${item.imdb_ID}`}>Full Details</Link>
-        <a href={item.trailer_URL}>Play trailer</a>
+        <a href={item.trailer_URL} target="_blank" rel="noopener noreferrer">
+          Play trailer
+        </a>
       </menu>
     </article>
   );

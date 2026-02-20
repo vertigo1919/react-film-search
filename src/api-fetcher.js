@@ -1,6 +1,8 @@
 async function getFilmByTitle(searchTerm) {
   const response = await fetch(
-    `https://imdb.iamidiotareyoutoo.com/search?q=${searchTerm}`
+    `https://imdb.iamidiotareyoutoo.com/search?q=${encodeURIComponent(
+      searchTerm
+    )}`
   );
   if (!response.ok) {
     throw new Error("Film Not Found");

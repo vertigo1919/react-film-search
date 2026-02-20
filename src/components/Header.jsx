@@ -1,9 +1,7 @@
-import { useState } from "react";
-
 function Header() {
   return (
     <header>
-      <h1> Film Search App </h1>
+      <h1> React API Film Search </h1>
     </header>
   );
 }

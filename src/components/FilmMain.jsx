@@ -1,14 +1,21 @@
 import { useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import getFilmByTitle from "../api-fetcher";
 import SearchBar from "./FilmMainComponents/SearchBar";
 import FilmList from "./FilmMainComponents/FilmList";
 
 function FilmMain() {
   const [query, setQuery] = useState("");
-  const [submittedQuery, setSubmittedQuery] = useState("");
+  const [searchParams, setSearchParams] = useSearchParams();
+  const submittedQuery = searchParams.get("q") ?? "";
+
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [searchResults, setSearchResults] = useState([]);
+
+  useEffect(() => {
+    setQuery(submittedQuery);
+  }, [submittedQuery]);
 
   useEffect(() => {
     if (!submittedQuery.trim()) {
@@ -35,15 +42,12 @@ function FilmMain() {
     }
   }
 
-  async function submitHandler(query) {
-    setSubmittedQuery(query);
+  function submitHandler(q) {
+    setSearchParams({ q });
   }
 
-  async function clearHandler() {
-    setQuery("");
-    setSubmittedQuery("");
-    setSearchResults([]);
-    setError(null);
+  function clearHandler() {
+    setSearchParams({});
   }
 
   return (

@@ -172,6 +172,25 @@ article {
   After you moved <main> to App.jsx, this page will be width-limited automatically.
   The rules below just make the card layout tidy.
 */
+.details-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin: 0.25rem 0 0.75rem;
+}
+
+.back-button {
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.back-button:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.18);
+}
 
 .details-card {
   padding: 1rem;
@@ -214,6 +233,11 @@ article {
 
 .detail-row:last-child {
   border-bottom: none;
+}
+
+.film-card-basic-info .detail-row {
+  padding: 0.35rem 0;
+  grid-template-columns: 70px 1fr;
 }
 
 .label {

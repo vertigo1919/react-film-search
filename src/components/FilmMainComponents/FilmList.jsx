@@ -1,4 +1,3 @@
-import { useState } from "react";
 import filmListBuilder from "../film-list-builder";
 import FilmCard from "./FilmCard";
 
