@@ -2,7 +2,7 @@
 
 A small React app that searches films and lets you click into a “full details” page for a specific IMDb title.
 
-[Live Demo 🚀](https://react-grocery-shopping-engine.netlify.app/)
+[Live Demo 🚀](https://react-api-film-search.netlify.app/)
 
 ## How to Use the App
 
